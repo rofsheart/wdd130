@@ -1,4 +1,4 @@
-/* ---------- CSS Variables ---------- */
+
 :root {
   --primary-color: #5b3fa0;
   --accent-color: #d9c8f0;
@@ -9,7 +9,6 @@
   --font-body: Arial, Helvetica, sans-serif;
 }
 
-/* ---------- Reset / Base ---------- */
 *,
 *::before,
 *::after {
@@ -34,7 +33,6 @@ p {
   margin-bottom: 1rem;
 }
 
-/* ---------- Header (CSS Grid) ---------- */
 header {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -49,7 +47,6 @@ header img {
   height: auto;
 }
 
-/* ---------- Nav (CSS Flex) ---------- */
 nav ul {
   display: flex;
   justify-content: flex-end;
@@ -74,7 +71,6 @@ nav a:focus {
   color: var(--light-color);
 }
 
-/* ---------- Hero ---------- */
 .hero {
   position: relative;
 }
@@ -120,7 +116,6 @@ nav a:focus {
   color: var(--dark-color);
 }
 
-/* ---------- History (CSS Grid, 3 columns) ---------- */
 .history {
   padding: 2rem 1.5rem;
 }
@@ -145,7 +140,6 @@ nav a:focus {
   border-radius: 6px;
 }
 
-/* ---------- Adventures (5-column grid of figures) ---------- */
 .adventures {
   padding: 2rem 1.5rem 3rem;
 }
@@ -183,7 +177,7 @@ nav a:focus {
   color: var(--primary-color);
 }
 
-/* ---------- Footer ---------- */
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -208,7 +202,7 @@ footer p {
   height: 32px;
 }
 
-/* ---------- Responsive ---------- */
+
 @media (max-width: 800px) {
   header {
     grid-template-columns: 1fr;
