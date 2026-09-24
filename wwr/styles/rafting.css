@@ -1,39 +1,23 @@
-/* ==========================================================================
-   1. CSS Variables (Color Scheme & Fonts)
-   ========================================================================== */
 :root {
-    --primary-color: #055a05;
-    /* forest green */
+    --primary-color: #1f5c3d;
     --secondary-color: #f4a261;
-    /* warm sand */
     --accent1-color: #264653;
-    /* dark slate blue */
     --accent2-color: #e9c46a;
-    /* light golden yellow */
     --heading-font: "Times New Roman", "Georgia", serif;
     --body-font: Arial, Helvetica, sans-serif;
 }
 
-/* ==========================================================================
-   2. Universal Reset
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ==========================================================================
-   3. Base Body Styles
-   ========================================================================== */
 body {
     font-family: var(--body-font);
     color: var(--accent1-color);
 }
 
-/* ==========================================================================
-   4. Page Width and Centering
-   ========================================================================== */
 header,
 main,
 footer {
@@ -41,18 +25,36 @@ footer {
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   5. Headings
-   ========================================================================== */
+header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--accent2-color);
+}
+
+header img {
+    width: 80px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+nav a {
+    color: var(--accent2-color);
+    text-decoration: none;
+    padding: 1rem;
+}
+
 h1,
 h2 {
     font-family: var(--heading-font);
     color: var(--primary-color);
 }
 
-/* ==========================================================================
-   6. Basic Spacing for Layout Elements
-   ========================================================================== */
 nav,
 p,
 section,
@@ -61,26 +63,17 @@ article {
     padding: 8px;
 }
 
-/* ==========================================================================
-   7. Social Media Links
-   ========================================================================== */
-.socialmedia a {
-    text-decoration: none;
+.hero {
+    position: relative;
 }
 
-/* ==========================================================================
-   8. Hero Section (Div with Overlays)
-   ========================================================================== */
-
-/* Style the image inside the hero div to fill the width */
 .hero img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* Style the h1 heading to overlay on top of the hero image */
-h1 {
+.hero h1 {
     position: absolute;
     top: 20px;
     width: 100%;
@@ -89,29 +82,52 @@ h1 {
     opacity: 0.7;
     background-color: var(--accent1-color);
     color: #fff;
-    /* white text for contrast against the dark slate background */
 }
 
-/* Style the article to overlay on the hero image */
-/* Since the instructions say "a style of your choice", here is a clean, 
-   readable overlay style that fits the hero section */
 .hero article {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background-color: rgba(255, 255, 255, 0.85);
-    /* Semi-transparent white */
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 16px;
     border-radius: 8px;
-    width: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Float the image inside the article to the right and add specific sizing */
 .hero article img {
     float: right;
     width: 125px;
     margin-left: 16px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* Added a slight shadow as suggested */
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.socialmedia {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.socialmedia a {
+    text-decoration: none;
+}
+
+.socialmedia img {
+    width: 40px;
+    height: 40px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--accent2-color);
+    padding: 16px;
+    margin-top: 16px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
 }
