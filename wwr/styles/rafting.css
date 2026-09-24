@@ -1,3 +1,15 @@
+/* ---------- CSS Variables ---------- */
+:root {
+  --primary-color: #5b3fa0;
+  --accent-color: #d9c8f0;
+  --dark-color: #222222;
+  --light-color: #ffffff;
+  --text-color: #333333;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Reset / Base ---------- */
 *,
 *::before,
 *::after {
@@ -7,27 +19,29 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
+  font-family: var(--font-body);
+  color: var(--text-color);
   line-height: 1.5;
 }
 
 h1, h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading);
   margin-bottom: 0.5rem;
+  color: var(--primary-color);
 }
 
 p {
   margin-bottom: 1rem;
 }
 
+/* ---------- Header (CSS Grid) ---------- */
 header {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  background-color: #d9c8f0; /* light purple like wireframe */
+  background-color: var(--accent-color);
 }
 
 header img {
@@ -35,34 +49,32 @@ header img {
   height: auto;
 }
 
-
+/* ---------- Nav (CSS Flex) ---------- */
 nav ul {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 nav a {
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #222;
-  background-color: #fff;
-  border: 1px solid #222;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  border: 1px solid var(--dark-color);
   border-radius: 4px;
   font-weight: bold;
 }
 
 nav a:hover,
 nav a:focus {
-  background-color: #222;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
-
+/* ---------- Hero ---------- */
 .hero {
   position: relative;
 }
@@ -80,7 +92,7 @@ nav a:focus {
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
-  color: #fff;
+  color: var(--light-color);
   text-shadow: 2px 2px 6px #000;
 }
 
@@ -105,16 +117,16 @@ nav a:focus {
 
 .hero article p {
   margin: 0;
+  color: var(--dark-color);
 }
 
-
+/* ---------- History (CSS Grid, 3 columns) ---------- */
 .history {
   padding: 2rem 1.5rem;
 }
 
 .history h2 {
   text-align: center;
-  margin-top: 0;
 }
 
 .history-grid {
@@ -133,14 +145,13 @@ nav a:focus {
   border-radius: 6px;
 }
 
-
+/* ---------- Adventures (5-column grid of figures) ---------- */
 .adventures {
   padding: 2rem 1.5rem 3rem;
 }
 
 .adventures h2 {
   text-align: center;
-  margin-top: 0;
 }
 
 .adventure-gallery {
@@ -152,9 +163,8 @@ nav a:focus {
 }
 
 .adventure-gallery figure {
-  margin: 0;
   text-align: center;
-  background-color: #f2ecfa;
+  background-color: var(--accent-color);
   border-radius: 6px;
   padding: 0.5rem;
 }
@@ -170,19 +180,22 @@ nav a:focus {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   font-weight: bold;
+  color: var(--primary-color);
 }
 
+/* ---------- Footer ---------- */
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: #d9c8f0;
-  border-top: 1px solid #999;
+  background-color: var(--accent-color);
+  border-top: 1px solid var(--primary-color);
 }
 
 footer p {
   margin: 0;
+  color: var(--dark-color);
 }
 
 .socialmedia {
