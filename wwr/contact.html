@@ -7,7 +7,8 @@
     <meta name="description"
       content="Experience thrilling white water rafting adventures with White Water Rafting Co.">
     <meta name="author" content="Hearton Edu">
-    <title>About Us - White Water Rafting Co.</title>
+    <!-- FIXED: Changed title from "About Us" to "Contact Us" to match page content -->
+    <title>Contact Us - White Water Rafting Co.</title>
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
@@ -37,7 +38,7 @@
         <section class="contact-layout">
             <div class="map-section">
                 <h2>Find us</h2>
-                <!-- Inline style, width, and height attributes removed -->
+                <!-- No inline styles, no width/height attributes -->
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=" allowfullscreen=""
                   loading="lazy">
                 </iframe>
@@ -54,18 +55,22 @@
 
                     <fieldset>
                         <legend>Purpose of Message</legend>
-                        <label>
-                            <input type="radio" name="purpose" value="general" required>General
+                        <!-- FIXED: Added unique id attributes to inputs and for attributes to labels -->
+                        <label for="general">
+                            <input type="radio" name="purpose" value="general" id="general"
+                              required>General
                             Inquiry
                         </label>
 
-                        <label>
-                            <input type="radio" name="purpose" value="reservation">Reservation
+                        <label for="reservation">
+                            <input type="radio" name="purpose" value="reservation"
+                              id="reservation">Reservation
                             Question
                         </label>
 
-                        <label>
-                            <input type="radio" name="purpose" value="suggestion">Website
+                        <label for="suggestion">
+                            <input type="radio" name="purpose" value="suggestion"
+                              id="suggestion">Website
                             Suggestion
                         </label>
                     </fieldset>
@@ -73,8 +78,10 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5"></textarea>
 
-                    <label>
-                        <input type="checkbox" name="newsletter">please subscribe me to the
+                    <!-- FIXED: Added unique id attribute to checkbox and for attribute to label -->
+                    <label for="newsletter">
+                        <input type="checkbox" name="newsletter" id="newsletter">please subscribe me
+                        to the
                         monthly newsletter
                     </label>
 
