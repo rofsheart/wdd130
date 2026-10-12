@@ -1,3 +1,12 @@
+You are absolutely right. Inline styles should always be avoided in favor of external CSS. To fix this,
+we need to remove the `style="border: 0;" ` (as well as the `width` and `height` attributes) from the `<iframe > ` tag in your HTML. We will then ensure those properties are handled in the external CSS file. Here is the corrected HTML and the fully infused CSS. ### 1. Corrected HTML (`index.html`) I have removed the inline style and the presentational width/height attributes from the `<iframe > `. ```html < !DOCTYPE html > <html lang="en" > <head > <meta charset="UTF-8" > <meta name="viewport" content="width=device-width, initial-scale=1.0" > <meta name="description"
+content="Experience thrilling white water rafting adventures with White Water Rafting Co." > <meta name="author" content="Hearton Edu" > <title > About Us - White Water Rafting Co.</title > <link rel="stylesheet" href="styles/rafting.css" > </head > <body > <header > <img src="images/water-rafting.png" alt="White Water Rafting Logo" > <nav > <ul > <li > <a href="index.html" > Home</a > </li > <li > <a href="about.html" > About Us</a > </li > <li > <a href="trips.html" > Trips</a > </li > <li > <a href="contact.html" > Contact Us</a > </li > </ul > </nav > </header > <main > <section class="contact-header" > <h1 > WHITE WATER RAFTING CO.</h1 > </section > <section class="company-info" > <h2 > Company Information</h2 > <p > <strong > Email:</strong > info@whitewaterrafting.com</p > <p > <strong > Phone:</strong > + 2348065586755</p > <p > <strong > Address:</strong > 36 Atekong Drive, Calabar, Cross River, Nigeria</p > </section > <section class="contact-layout" > <div class="map-section" > <h2 > Find us</h2 > < !-- Inline styles, width, and height attributes removed -- > <iframe class="map" src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy" > </iframe > </div > <div class="contact-form" > <h2 > Send Us a Message</h2 > <form action="#" method="post" > <label for="name" > Name</label > <input type="text" id="name" name="name" required > <label for="email" > Email Address</label > <input type="email" id="email" name="email" required > <fieldset > <legend > Purpose of Message</legend > <label > <input type="radio" name="purpose" value="general" required > General Inquiry </label > <label > <input type="radio" name="purpose" value="reservation" > Reservation Question </label > <label > <input type="radio" name="purpose" value="suggestion" > Website Suggestion </label > </fieldset > <label for="message" > Message</label > <textarea id="message" name="message" rows="5" > </textarea > <label > <input type="checkbox" name="newsletter" > please subscribe me to the monthly newsletter </label > <button type="submit" class="cta-button" > Send Message</button > </form > </div > </section > <section class="employees" > <h2 > Meet Our Team</h2 > <figure > <img src="images/manager.png" alt="Johnson Abel" > <figcaption > David Edu-General Manager</figcaption > </figure > <figure > <img src="images/guide.webp" alt="Jack Moor" > <figcaption > Favour Edu - Lead River Guide</figcaption > </figure > <figure > <img src="images/customer-service.png" alt="Alice Brown" > <figcaption > Rendi Racine Edu- Customer Service Manager</figcaption > </figure > </section > </main > <footer > <p > &copy;
+2026 White Water Rafting Co. | Hearton Rofem Edu</p > <nav class="socialmedia" > <a href="https://facebook.com" > <img src="images/facebook111.svg" alt="Facebook" > </a > <a href="https://twitter.com" > <img src="images/twitter111.png" alt="Twitter" > </a > <a href="https://instagram.com" > <img src="images/instagram111.svg" alt="Instagram" > </a > </nav > </footer > </body > </html > ``` ### 2. Updated External CSS (`styles/rafting.css`) I have added `border: 0;
+` to the `.map-section iframe` rule to replace the inline style that was removed. Everything else remains infused with your design system. ```css
+
+/* =========================================
+   1. Design System Variables & Reset
+   ========================================= */
 :root {
   --primary-color: #5b3fa0;
   --accent-color: #d9c8f0;
@@ -34,6 +43,9 @@ p {
   margin-bottom: 1rem;
 }
 
+/* =========================================
+   2. Header & Navigation
+   ========================================= */
 header {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -74,6 +86,9 @@ nav a:focus {
   color: var(--light-color);
 }
 
+/* =========================================
+   3. Main Content Layout
+   ========================================= */
 main {
   max-width: 1000px;
   margin: 0 auto;
@@ -97,7 +112,6 @@ main {
 
 .company-info h2 {
   display: none;
-  /* Visually hidden, as H1 serves as the main title */
 }
 
 .company-info p {
@@ -105,6 +119,9 @@ main {
   font-size: 1.1rem;
 }
 
+/* =========================================
+   4. Contact Layout (Map & Form Grid)
+   ========================================= */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -117,7 +134,8 @@ main {
   width: 100%;
   height: 100%;
   min-height: 450px;
-  border: 1px solid var(--primary-color);
+  border: 0;
+  /* Replaces the inline style */
   border-radius: 6px;
   background-color: #e0e0e0;
 }
@@ -125,7 +143,6 @@ main {
 /* Form Section */
 .contact-form h2 {
   display: none;
-  /* Visually hidden to match wireframe */
 }
 
 .contact-form form {
@@ -211,7 +228,7 @@ main {
   color: var(--dark-color);
 }
 
-/* Submit Button (Styled like Nav buttons but larger) */
+/* Submit Button */
 .contact-form .cta-button {
   grid-column: 1 / -1;
   padding: 0.8rem;
@@ -231,13 +248,15 @@ main {
   color: var(--light-color);
 }
 
+/* =========================================
+   5. Employees Section
+   ========================================= */
 .employees {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem;
   background-color: rgba(217, 200, 240, 0.3);
-  /* Light accent background */
   border: 1px solid var(--primary-color);
   border-radius: 6px;
   margin-bottom: 2rem;
@@ -263,7 +282,6 @@ main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
-  /* Circular employee photos */
   background-color: var(--light-color);
   border: 2px solid var(--primary-color);
   margin-bottom: 1rem;
@@ -275,6 +293,9 @@ main {
   color: var(--primary-color);
 }
 
+/* =========================================
+   6. Footer
+   ========================================= */
 footer {
   display: flex;
   justify-content: space-between;
@@ -310,6 +331,9 @@ footer p {
   box-sizing: border-box;
 }
 
+/* =========================================
+   7. Media Queries
+   ========================================= */
 @media (max-width: 800px) {
   header {
     grid-template-columns: 1fr;
@@ -369,3 +393,5 @@ footer p {
     text-align: center;
   }
 }
+
+```
